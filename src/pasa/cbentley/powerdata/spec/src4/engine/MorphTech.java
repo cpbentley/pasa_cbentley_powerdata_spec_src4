@@ -1,14 +1,24 @@
-package pasa.cbentley.powerdata.spec.src4.power.itech;
+package pasa.cbentley.powerdata.spec.src4.engine;
 
-import pasa.cbentley.byteobjects.src4.core.BOModuleAbstract;
 import pasa.cbentley.byteobjects.src4.core.ByteObjectManaged;
 import pasa.cbentley.byteobjects.src4.core.ByteObjectManagedFactory;
 import pasa.cbentley.powerdata.spec.src4.ctx.PDCtxA;
+import pasa.cbentley.powerdata.spec.src4.power.itech.ITechMorph;
+import pasa.cbentley.powerdata.spec.src4.power.itech.ITechPointerStruct;
 
+/**
+ * 
+ * @author Charles Bentley
+ *
+ */
 public class MorphTech {
 
    private PDCtxA pdc;
 
+   /**
+    * 
+    * @param pdc
+    */
    public MorphTech(PDCtxA pdc) {
       this.pdc = pdc;
    }
@@ -34,7 +44,7 @@ public class MorphTech {
    }
 
    private ByteObjectManaged getBomBase(int intID, int hSize, int classID) {
-      ByteObjectManagedFactory factory = pdc.getBoc().getByteObjectManagedFactory();
+      ByteObjectManagedFactory factory = pdc.getBOC().getByteObjectManagedFactory();
       ByteObjectManaged bom = factory.getTechDefault(hSize, classID, intID);
       return bom;
    }
