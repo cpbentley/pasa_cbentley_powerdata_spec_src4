@@ -864,7 +864,7 @@ public class TechFactory extends
    //#mdebug
    public void toStringFastNodeDataCharTech(Dctx sb, ByteObject tech) {
       sb.append("#ITechFastNodeDataChar");
-      toStringFastNodeDataTech(sb.nLevel(), tech);
+      toStringFastNodeDataTech(sb.newLevel(), tech);
    }
 
    /**
@@ -875,7 +875,7 @@ public class TechFactory extends
     */
    public void toStringFastNodeDataTech(Dctx sb, ByteObject tech) {
       sb.append("#ITechFastNodeData");
-      toStringTechNode(sb.nLevel(), tech);
+      toStringTechNode(sb.newLevel(), tech);
    }
 
    public UCtx toStringGetUCtx() {
@@ -897,7 +897,7 @@ public class TechFactory extends
       if (tech.hasFlag(CHARCOL_OFFSET_01_FLAG1, CHARCOL_FLAG_4_INDEX_SERIALIZED)) {
          sb.append(" IndexSerial");
       }
-      toStringTechCharCol(sb.nLevel(), tech);
+      toStringTechCharCol(sb.newLevel(), tech);
    }
 
    /**
@@ -916,7 +916,7 @@ public class TechFactory extends
       sb.append("#ITechIntToIntsBuild");
       sb.append(" EmptiesSize=" + tech.get2(ITIS_BUILD_OFFSET_02_EMPTIES_SIZE2));
       sb.append(" Empties= " + tech.hasFlag(ITIS_BUILD_OFFSET_01_FLAG1, ITIS_BUILD_FLAG_1_EMPTIES));
-      toStringTechIntToInts(sb.nLevel(), tech);
+      toStringTechIntToInts(sb.newLevel(), tech);
    }
 
    public void toStringPowerStringLinkerTech(Dctx sb, ByteObject tech) {
@@ -924,7 +924,7 @@ public class TechFactory extends
       sb.append(" size=" + tech.get2(LINKER_OFFSET_02_SIZE2));
       sb.append(" CharCoRef= " + tech.get2(LINKER_OFFSET_03_REF_CHARCO2));
       sb.append(" PointersRef= " + tech.get2(LINKER_OFFSET_04_REF_POINTERS2));
-      toStringTechPointer(sb.nLevel(), tech);
+      toStringTechPointer(sb.newLevel(), tech);
    }
 
    private void toStringPrivate(Dctx dc) {
@@ -942,7 +942,7 @@ public class TechFactory extends
    public void toStringTechCharCol(Dctx sb, ByteObject tech) {
       sb.append("#ITechCharCol");
       sb.append(" Single Plane=" + tech.hasFlag(ITechCharCol.CHARCOL_OFFSET_01_FLAG1, ITechCharCol.CHARCOL_FLAG_6_SINGLE_PLANE));
-      toStringTechPointer(sb.nLevel(), tech);
+      toStringTechPointer(sb.newLevel(), tech);
    }
 
    public void toStringTechCharSearch(Dctx sb, ByteObject tech) {
@@ -951,7 +951,7 @@ public class TechFactory extends
       sb.append(" isThreaded=" + tech.hasFlag(SEARCH_CHAR_OFFSET_01_FLAG1, SEARCH_CHAR_FLAG_2_IS_THREADED));
       sb.nl();
       sb.append(" MaxFrameSize=" + tech.get2(SEARCH_CHAR_OFFSET_02_FRAME_SIZE2));
-      tech.toStringBackUp(sb.nLevel());
+      tech.toStringBackUp(sb.newLevel());
    }
 
    //#mdebug
@@ -962,14 +962,14 @@ public class TechFactory extends
       sb.append(" Height=");
       sb.append(tech.get2(ITechCharTrie.CTRIE_OFFSET_05_HEIGHT_TRIE2));
       sb.append(" ReuseChars=" + tech.hasFlag(ITechCharTrie.CTRIE_OFFSET_01_FLAG, ITechCharTrie.CTRIE_FLAG_1_REUSE_CHARS));
-      toStringTechCharCol(sb.nLevel(), tech);
+      toStringTechCharCol(sb.newLevel(), tech);
    }
 
    public void toStringTechIntToInt(Dctx sb, ByteObject tech) {
       sb.append("#ITechIntToInt");
       sb.append(" DefValue=" + tech.get4(ITechIntToInt.ITI_OFFSET_02_DEF_VALUE4));
       sb.nl();
-      toStringTechPointer(sb.nLevel(), tech);
+      toStringTechPointer(sb.newLevel(), tech);
    }
 
    public void toStringTechIntToInts(Dctx sb, ByteObject tech) {
@@ -978,7 +978,7 @@ public class TechFactory extends
       sb.append(" OrderType=" + tech.get1(ITIS_OFFSET_02_ORDER_TYPE1));
       sb.append(" ColInit=" + tech.get2(ITIS_OFFSET_03_COL_INIT_SIZE2));
       sb.append(" RowInit=" + tech.get2(ITIS_OFFSET_04_ROW_INIT_SIZE2));
-      toStringTechIntToInt(sb.nLevel(), tech);
+      toStringTechIntToInt(sb.newLevel(), tech);
    }
 
    /**
@@ -995,7 +995,7 @@ public class TechFactory extends
       sb.append(" mode=" + tech.get1(ITechMorph.MORPH_OFFSET_02_MODE1));
       sb.append(" ref=" + tech.get2(ITechMorph.MORPH_OFFSET_03_REF2));
       sb.nl();
-      getBOC().getByteObjectManagedFactory().toStringHeader(sb.nLevel(), (ByteObjectManaged) tech);
+      getBOC().getByteObjectManagedFactory().toStringHeader(sb.newLevel(), (ByteObjectManaged) tech);
    }
 
    public void toStringTechNode(Dctx sb, ByteObject tech) {
@@ -1008,7 +1008,7 @@ public class TechFactory extends
       } else {
          sb.append(" Family");
       }
-      toStringTechPointer(sb.nLevel(), tech);
+      toStringTechPointer(sb.newLevel(), tech);
    }
 
    /**
@@ -1028,13 +1028,13 @@ public class TechFactory extends
       sb.append(" GrowthTop=" + tech.hasFlag(ITechPointerStruct.PS_OFFSET_01_FLAG, ITechPointerStruct.PS_FLAG_5_GROWTH_TOP));
       sb.append(" References=" + tech.hasFlag(ITechPointerStruct.PS_OFFSET_01_FLAG, ITechPointerStruct.PS_FLAG_6_REFERENCE));
       sb.append(" Copies=" + tech.hasFlag(ITechPointerStruct.PS_OFFSET_01_FLAG, ITechPointerStruct.PS_FLAG_7_COPIES));
-      toStringTechMorph(sb.nLevel(), (ByteObjectManaged) tech);
+      toStringTechMorph(sb.newLevel(), (ByteObjectManaged) tech);
    }
 
    //#mdebug
    public void toStringTechTrieSearch(Dctx sb, ByteObject tech) {
       sb.append("#ITechTrieSearch");
-      toStringTechCharSearch(sb.nLevel(), tech);
+      toStringTechCharSearch(sb.newLevel(), tech);
    }
 
    //#enddebug

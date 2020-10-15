@@ -50,6 +50,11 @@ public interface IPowerCharTrie extends IPowerCharCollector {
     */
    public IntToStrings getPrefixed(String prefix);
 
+   /**
+    * 
+    * @param pointer
+    * @return
+    */
    public boolean isWord(int pointer);
 
    /**
@@ -68,6 +73,9 @@ public interface IPowerCharTrie extends IPowerCharCollector {
     */
    public int getPrefixPointer(String str, ICharComparator tss);
 
+   /**
+    * Creates a {@link IPrefixSearchSession} for searching the trie.
+    */
    public IPrefixSearchSession searchPrefix(int frameSize);
 
 }
