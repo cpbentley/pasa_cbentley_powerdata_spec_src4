@@ -10,10 +10,26 @@ import pasa.cbentley.powerdata.spec.src4.IFactoryIDStruct;
 import pasa.cbentley.powerdata.spec.src4.engine.MorphTech;
 import pasa.cbentley.powerdata.spec.src4.engine.TechFactory;
 import pasa.cbentley.powerdata.spec.src4.guicontrols.TrieUtilz;
+import pasa.cbentley.powerdata.spec.src4.power.IPowerCharCollector;
+import pasa.cbentley.powerdata.spec.src4.power.integers.IPowerIntArray;
+import pasa.cbentley.powerdata.spec.src4.power.trie.IPowerCharTrie;
 import pasa.cbentley.powerdata.spec.src4.spec.CharColUtilz;
 
 /**
- * The implementation of this API will subclass this context class
+ * The implementation of this API will subclass this context class.
+ * <p>
+ * Software modules that defines the API of various datastructures
+ * </p>
+ * <li> {@link IPowerCharCollector}
+ * <li> {@link IPowerCharTrie}
+ * <li> {@link IPowerIntArray}
+ * 
+ * <p>
+ * The prefix is IPower. I for interface and Power for the brand.
+ * </p>
+ * 
+ * Application creates and loads an implementation of this API by way of its context.
+ * 
  * @author Charles Bentley
  *
  */
